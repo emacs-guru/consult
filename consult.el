@@ -1605,6 +1605,8 @@ The function can be used as the `:state' argument of `consult--read'."
       (when (eq action 'preview)
         (mapc #'funcall restore)
         (setq restore nil)
+        (when vertico-posframe-mode
+          (vertico-posframe-mode -1))
         ;; TODO Better buffer preview support
         ;; 1. Use consult--buffer-preview instead of consult--jump-ensure-buffer
         ;; 2. Remove function consult--jump-ensure-buffer
